@@ -1,0 +1,31 @@
+#
+# Service의 등록(부팅시 자동으로 실행되어짐)
+#
+#  서비스등록 방법(root권한 필요):
+#    등록할 파일 *.service 을 /etc/systemd/system/ 으로 복사함.
+#    서비스의 등록 : sudo systemctl enable {service name}
+#    서비스의 해제 : sudo systemctl disable {service name}
+#
+[Unit]
+Description=Label Printer Server for ODROID
+After=syslog.target
+
+[Service]
+Type=simple
+
+# login의 user를 입력한다. root계정의 경우 root로 입력한다.
+# User=odroid
+User=root
+
+# github에서 내려 받은 폴더를 기록하도록 한다.
+WorkingDirectory=/root/nlp_server
+
+# python3 실행하여 server app 실행.
+ExecStart=python3 nlp_server.py
+# 선행으로 시작할 명령어 등록
+ExecStartPre=/bin/sleep 10
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=default.target
+
