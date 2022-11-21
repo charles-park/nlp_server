@@ -1,12 +1,12 @@
 # nlp_server
 ### Network Printer Server(ODROID-C4)
-* Linux OS Image https://odroid.in/ubuntu_22.04lts/C4_HC4/ubuntu-22.04-4.9-mate-odroid-c4-hc4-20220713.img.xz
+* Linux OS Image https://dn.odroid.com/S905X3/ODROID-C4/Ubuntu/ubuntu-20.04-4.9-minimal-odroid-c4-hc4-20220228.img.xz
 * eMMC16GB, 16x2 Char LCD Display (MAC Address, IP Address)
 
 ### Install package
 * apt update && apt upgrade -y
-* apt install build-essential vim ssh git python3 python3-pip cups cups-bsd lpr
-* python3 -m pip install zebra cups psutil asyncio psutil
+* apt install build-essential vim ssh git python3 python3-pip cups cups-bsd
+* python3 -m pip install zebra cups psutil asyncio
 
 ### Label Printer setup
 * Print device info
