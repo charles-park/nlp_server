@@ -2,6 +2,7 @@
 ### Network Printer Server(ODROID-C4)
 * Linux OS Image https://dn.odroid.com/S905X3/ODROID-C4/Ubuntu/ubuntu-20.04-4.9-minimal-odroid-c4-hc4-20220228.img.xz
 * eMMC16GB, 16x2 Char LCD Display (MAC Address, IP Address)
+* Find nlp server : nmap 192.168.xxx.* -p T:8888 --open
 
 ### Install package
 * apt update && apt upgrade -y
