@@ -41,3 +41,26 @@ root@odroid: lpadmin -p zebra -E -v usb://Zebra%20Technologies/ZTC%20ZD230-203dp
 root@odroid: lpstat -v
 device for zebra: usb://Zebra%20Technologies/ZTC%20ZD230-203dpi%20ZPL?serial=D4J222603053
 ```
+### Install iperf package for odroid board iperf test.
+* dpkg -i libiperf0_3.1.3-1_arm64.deb
+* dpkg -i iperf3_3.1.3-1_arm64.deb
+
+### Install nlp and iperf server service
+```
+root@odroid:~/nlp_server/install# ./install.sh
+root@odroid:~/nlp_server/install# systemctl status nlp_server.service 
+● nlp_server.service - Label Printer Server for ODROID
+     Loaded: loaded (/etc/systemd/system/nlp_server.service; enabled; vendor pr>
+     Active: active (running) since Mon 2022-11-21 08:40:42 UTC; 15s ago
+    Process: 3792 ExecStartPre=/bin/sleep 10 (code=exited, status=0/SUCCESS)
+   Main PID: 3802 (python3)
+      Tasks: 1 (limit: 3838)
+     Memory: 10.2M
+     CGroup: /system.slice/nlp_server.service
+             └─3802 /usr/bin/python3 nlp_server.py
+
+Nov 21 08:40:32 odroid systemd[1]: Starting Label Printer Server for ODROID...
+Nov 21 08:40:42 odroid systemd[1]: Started Label Printer Server for ODROID.
+root@odroid:~/nlp_server/install# reboot
+
+```
