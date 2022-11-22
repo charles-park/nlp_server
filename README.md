@@ -8,7 +8,7 @@
 
 ### Install package
 * apt update && apt upgrade -y
-* apt install build-essential vim ssh git python3 python3-pip cups cups-bsd
+* apt install build-essential vim ssh git python3 python3-pip cups cups-bsd overlayroot
 * python3 -m pip install zebra cups psutil asyncio
 
 ### Label Printer setup & test
@@ -71,4 +71,38 @@ Nov 21 08:40:32 odroid systemd[1]: Starting Label Printer Server for ODROID...
 Nov 21 08:40:42 odroid systemd[1]: Started Label Printer Server for ODROID.
 root@odroid:~/nlp_server/install# reboot
 
+```
+### OverlayFS Enable
+* initrd.img update for overlayroot.
+```
+root@odroid:~# update-initramfs -c -k $(uname -r)
+update-initramfs: Generating /boot/initrd.img-4.9.277-75
+root@odroid:~#
+root@odroid:~# mkimage -A arm64 -O linux -T ramdisk -C none -a 0 -e 0 -n uInitrd -d /boot/initrd.img-$(uname -r) /media/boot/uInitrd 
+Image Name:   uInitrd
+Created:      Wed Feb 23 09:31:01 2022
+Image Type:   AArch64 Linux RAMDisk Image (uncompressed)
+Data Size:    13210577 Bytes = 12900.95 KiB = 12.60 MiB
+Load Address: 00000000
+Entry Point:  00000000
+root@odroid:~#
+```
+* Enable overlayroot (change value overlayroot="" to overlayroot="tmpfs" in /etc/overlayroot.conf file.)
+```
+root@odroid:~# vi /etc/overlayroot.conf
+overlayroot_cfgdisk="disabled"
+overlayroot="tmpfs"
+```
+### Modified/Disable overlayroot
+* Get write permission for modify in overlayroot .
+```
+root@odroid:~# overlayroot-chroot 
+INFO: Chrooting into [/media/root-ro]
+root@odroid:~# 
+```
+* Disable overlayroot (change value overlayroot="tmpfs" to overlayroot="" in /etc/overlayroot.conf file.)
+```
+root@odroid:~# vi /etc/overlayroot.conf
+overlayroot_cfgdisk="disabled"
+overlayroot=""
 ```
