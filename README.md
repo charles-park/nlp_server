@@ -1,7 +1,9 @@
 # nlp_server
 ### Network Printer Server(ODROID-C4)
 * Linux OS Image https://dn.odroid.com/S905X3/ODROID-C4/Ubuntu/ubuntu-20.04-4.9-minimal-odroid-c4-hc4-20220228.img.xz
-* eMMC16GB, 16x2 Char LCD Display (MAC Address, IP Address)
+* Available printer : Zebra GC420d(Discontinued product), Zebra ZD230D
+* Printer connect : Direct USB Port connection.
+* Printer control : Zebra EPL2 protocol with Python zebra library.
 * Find nlp server : nmap 192.168.xxx.* -p T:8888 --open
 
 ### Install package
@@ -9,7 +11,7 @@
 * apt install build-essential vim ssh git python3 python3-pip cups cups-bsd
 * python3 -m pip install zebra cups psutil asyncio
 
-### Label Printer setup
+### Label Printer setup & test
 * Print device info
 ```
 root@odroid: lpinfo -v
@@ -42,7 +44,12 @@ root@odroid: lpadmin -p zebra -E -v usb://Zebra%20Technologies/ZTC%20ZD230-203dp
 root@odroid: lpstat -v
 device for zebra: usb://Zebra%20Technologies/ZTC%20ZD230-203dpi%20ZPL?serial=D4J222603053
 ```
-### Install iperf package for odroid board iperf test.
+* Label printer test (web site & mac address print)
+```
+root@odroid:~/nlp_server# python3 label_printer.py
+```
+
+### Install iperf package for odroid board iperf test. (In "install" folder)
 * dpkg -i libiperf0_3.1.3-1_arm64.deb
 * dpkg -i iperf3_3.1.3-1_arm64.deb
 
