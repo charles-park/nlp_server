@@ -7,7 +7,7 @@
 * Find nlp server : nmap 192.168.xxx.* -p T:8888 --open
 
 ### USB Label Pirinter Direct Control. ('lpr' linux command,https://www.computerhope.com/unix/ulpr.htm)
-* GC420d(EPL Code) control example file (ref : EPL_Manual.pdf)
+* GC420d(EPL Code) control example file (ref EPL2_Manual.pdf file)
 ```
 root@odroid: vi gc420d.txt
 N
@@ -15,14 +15,17 @@ A300,10,0,1,1,1,N,"Example 1"
 A300,50,0,2,1,1,N,"Example 1"
 P1
 ```
-* ZD230D(ZPL code) control example file (ref ZPL_Manual.pdf)
+* ZD230D(ZPL code) control example file (ref zpl_manual.pdf file)
 ```
 root@odroid: vi zd230d.txt
 ^XA
-^FO150,40^BY3
-^BCN,110,Y,N,N
-^FD123456^FS
-^XZ 
+^CFC,20,16
+^FO300,10
+^FDExample 1^FS
+^FO300,30
+^CFE,20,16
+^FDExample 2^FS
+^XZ
 ```
 * Send data to label printer
 ```
