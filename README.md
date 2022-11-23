@@ -6,6 +6,29 @@
 * Printer control : Zebra EPL2 protocol with Python zebra library.
 * Find nlp server : nmap 192.168.xxx.* -p T:8888 --open
 
+### USB Label Pirinter Direct Control. ('lpr' linux command,https://www.computerhope.com/unix/ulpr.htm)
+* GC420d(EPL Code) control example file (ref : EPL_Manual.pdf)
+```
+root@odroid: vi gc420d.txt
+N
+A300,10,0,1,1,1,N,"Example 1"
+A300,50,0,2,1,1,N,"Example 1"
+P1
+```
+* ZD230D(ZPL code) control example file (ref ZPL_Manual.pdf)
+```
+root@odroid: vi zd230d.txt
+^XA
+^FO150,40^BY3
+^BCN,110,Y,N,N
+^FD123456^FS
+^XZ 
+```
+* Send data to label printer
+```
+root@odroid: lpr {printer control example file} -P zebra
+```
+
 ### Install package
 * apt update && apt upgrade -y
 * apt install build-essential vim ssh git python3 python3-pip cups cups-bsd overlayroot
@@ -46,6 +69,8 @@ device for zebra: usb://Zebra%20Technologies/ZTC%20ZD230-203dpi%20ZPL?serial=D4J
 ```
 * Label printer test (web site & mac address print)
 ```
+root@odroid:# git clone https://github.com/charles-park/nlp_server
+root@odroid:# cd nlp_server
 root@odroid:~/nlp_server# python3 label_printer.py
 ```
 
