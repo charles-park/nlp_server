@@ -19,13 +19,13 @@ P1
 ```
 root@odroid: vi zd230d.txt
 ^XA
-^CFC,20,16
-^FO300,10
-^FDExample 1^FS
-^FO300,30
-^CFE,20,16
-^FDExample 2^FS
+^CFC
+^FO310,25
+^FDforum.odroid.com >^FS
+^FO316,55
+^FD00:1E:06:11:22:33^FS
 ^XZ
+
 ```
 * Send data to label printer
 ```
