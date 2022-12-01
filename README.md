@@ -10,9 +10,39 @@
 * GC420d(EPL Code) control example file (ref EPL2_Manual.pdf file)
 ```
 root@odroid: vi gc420d.txt
+; Example Mac address print
+I8,0,001
+Q78,16
+q240
+rN
+S4
+D15
+ZB
+JF
+O
+R304,10
+f100
 N
-A300,10,0,1,1,1,N,"Example 1"
-A300,50,0,2,1,1,N,"Example 1"
+A10,0,0,2,1,1,N,"forum.odroid.com >"
+A16,32,0,2,1,1,N,"00:1E:06:11:22:33"
+P1
+
+; Example Error message print
+I8,0,001
+Q85,16
+q240
+rN
+S4
+D15
+ZB
+JF
+O
+R304,10
+f100
+N
+A4,0,0,2,1,1,N,"1234567890123456789"
+A4,22,0,2,1,1,N,"abcdefghijklmnopqrs"
+A4,44,0,2,1,1,N,"ABCDEFGHIJKLMNOPQRS"
 P1
 ```
 * ZD230D(ZPL code) control example file (ref zpl_manual.pdf file)
@@ -26,6 +56,7 @@ root@odroid: vi zd230d.txt
 ^FO316,55
 ^FD00:1E:06:11:22:33^FS
 ^XZ
+
 ; Example Error message print
 ^XA
 ^CFC
