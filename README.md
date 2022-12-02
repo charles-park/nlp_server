@@ -115,7 +115,7 @@ device for zebra: usb://Zebra%20Technologies/ZTC%20ZD230-203dpi%20ZPL?serial=D4J
 ```
 * Label printer setup (Network : ZD230D)
 ```
-root@odroid: lpadmin -p zebra -E -v usb://Zebra%20Technologies/ZTC%20ZD230-203dpi%20ZPL?serial=D4J222603053
+root@odroid: lpadmin -p zebra -E -v socket://192.168.20.36
 root@odroid: lpstat -v
 device for zebra: socket://192.168.20.36
 ```
