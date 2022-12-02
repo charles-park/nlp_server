@@ -51,20 +51,20 @@ root@odroid: vi zd230d.txt
 ; Example Mac address print
 ^XA
 ^CFC
-^FO310,25
+^FO10,25
 ^FDforum.odroid.com >^FS
-^FO316,55
+^FO16,55
 ^FD00:1E:06:11:22:33^FS
 ^XZ
 
 ; Example Error message print
 ^XA
 ^CFC
-^FO304,20
+^FO04,20
 ^FD1234567890123456789^FS
-^FO304,40
+^FO04,40
 ^FDabcdefghijklmnopqrs^FS
-^FO304,60
+^FO04,60
 ^FDABCDEFGHIJKLMNOPQRS^FS
 ^XZ
 ```
