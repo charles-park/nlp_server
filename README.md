@@ -5,6 +5,7 @@
 * Printer connect : Direct USB Port connection.
 * Printer control : Zebra EPL2 protocol with Python zebra library.
 * Find nlp server : nmap 192.168.xxx.* -p T:8888 --open
+* Find ZPL(Network) Printer : nmap 192.168.xxx.* -p T:9100 --open
 
 ### USB Label Pirinter Direct Control. ('lpr' linux command,https://www.computerhope.com/unix/ulpr.htm)
 * GC420d(EPL Code) control example file (ref EPL2_Manual.pdf file)
